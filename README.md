@@ -29,23 +29,23 @@ What hasn't been ported?
 
 * Disable Metal's unsafe floating-point optimizations.
 Add **-fno-fast-math** to Build Phases -> Compile Sources -> Compiler Flags for any Metal files using `metal_qd.h`
-* Read the `README` section **C. Programming techniques**
+* Read the `README_QD` section **C. Programming techniques**
 
 
 ## Example Code Snipet
 
-qd_real q;
-q=1.;            // native 1.0 converted to qd_real q
-q+=exp2(-95.);   // native 2^-95 added to qd_real q
-// q now represents 1.000000000000000000000000000025
-// This has more precision than can be represented in a native double
-
-// Conversion to/from float4 usefull for passing values between CPU and GPU
-simd::float4 vq;
-vq=to_float4(q); // Convert qd_real to float4
-
-qd_real qvq;     // Convert and float4 back to qd_real
-qvq=vq;
+    qd_real q;
+    q=1.;            // native 1.0 converted to qd_real q
+    q+=exp2(-95.);   // native 2^-95 added to qd_real q
+    // q now represents 1.000000000000000000000000000025
+    // This has more precision than can be represented in a native double
+    
+    // Conversion to/from float4 usefull for passing values between CPU and GPU
+    simd::float4 vq;
+    vq=to_float4(q); // Convert qd_real to float4
+    
+    qd_real qvq;     // Convert and float4 back to qd_real
+    qvq=vq;
 
 Find the above in `tests/metal_qd_test.cpp`
 
