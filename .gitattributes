@@ -1,2 +1,3 @@
 docs/* linguist-documentation
 autom4te.cache/* linguist-vendored
+config linguist-vendored
